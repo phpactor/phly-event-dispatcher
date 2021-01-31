@@ -15,11 +15,11 @@ use PHPUnit\Framework\TestCase;
 
 class RandomizedListenerProviderTest extends TestCase
 {
-    public function testRandomizesOrderOfListeners()
+    public function testRandomizesOrderOfListeners(): void
     {
         $listeners = [];
         for ($i = 0; $i < 10; $i += 1) {
-            $listeners[] = function (TestEvent $event) {
+            $listeners[] = function (TestEvent $event): void {
             };
         }
 

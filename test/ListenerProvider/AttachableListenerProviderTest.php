@@ -16,11 +16,11 @@ use stdClass;
 
 class AttachableListenerProviderTest extends TestCase
 {
-    public function testProviderAllowsListenerRegistrationAndReturnsListenersBasedOnEventType()
+    public function testProviderAllowsListenerRegistrationAndReturnsListenersBasedOnEventType(): void
     {
-        $listenerForTestEvent = function (TestEvent $e) {
+        $listenerForTestEvent = function (TestEvent $e): void {
         };
-        $listenerForStdclass = function (stdClass $e) {
+        $listenerForStdclass = function (stdClass $e): void {
         };
 
         $provider = new AttachableListenerProvider();
@@ -38,9 +38,9 @@ class AttachableListenerProviderTest extends TestCase
         );
     }
 
-    public function testProviderDoesNotAllowDuplicateRegistration()
+    public function testProviderDoesNotAllowDuplicateRegistration(): void
     {
-        $listenerForTestEvent = function (TestEvent $e) {
+        $listenerForTestEvent = function (TestEvent $e): void {
         };
 
         $provider = new AttachableListenerProvider();

@@ -16,10 +16,10 @@ use PhlyTest\EventDispatcher\TestAsset\TestEvent;
 
 class ListenerProviderAggregateTest extends TestCase
 {
-    public function testAggregateYieldsFromAttachedProviders()
+    public function testAggregateYieldsFromAttachedProviders(): void
     {
         $event = new TestEvent();
-        $listener = function (TestEvent $event) {
+        $listener = function (TestEvent $event): void {
         };
 
         $provider = $this->prophesize(ListenerProviderInterface::class);

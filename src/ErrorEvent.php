@@ -10,8 +10,9 @@ declare(strict_types=1);
 namespace Phly\EventDispatcher;
 
 use Throwable;
+use Exception;
 
-final class ErrorEvent extends \Exception
+final class ErrorEvent extends Exception
 {
     /** @var object */
     private $event;

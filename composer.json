@@ -13,12 +13,15 @@
         "rss": "https://github.com/phly/phly-event-dispatcher/releases.atom"
     },
     "require": {
-        "php": "^7.2 || ^8.0",
+        "php": "^7.3",
         "psr/container": "^1.0",
         "psr/event-dispatcher": "^1.0"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.0",
         "fig/event-dispatcher-util": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "phpbench/phpbench": "^1.0.0-alpha5",
         "phpunit/phpunit": "^8.1.1",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
@@ -65,5 +68,7 @@
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
-    }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

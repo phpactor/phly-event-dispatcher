@@ -22,7 +22,7 @@ class LazyListenerTest extends TestCase
         $this->container = $this->prophesize(ContainerInterface::class);
     }
 
-    public function testRaisesExceptionIfServiceReturnedIsNeitherAnObjectNorCallable()
+    public function testRaisesExceptionIfServiceReturnedIsNeitherAnObjectNorCallable(): void
     {
         $this->container->get('LazyService')->willReturn('not-callable');
         $lazyListener = new LazyListener($this->container->reveal(), 'LazyService');
@@ -31,7 +31,7 @@ class LazyListenerTest extends TestCase
         $lazyListener($this->event);
     }
 
-    public function testInvokesNonObjectCallableListenerReturnedByContainer()
+    public function testInvokesNonObjectCallableListenerReturnedByContainer(): void
     {
         $this->container->get('LazyService')->willReturn(__NAMESPACE__ . '\TestAsset\listenerFunction');
         $lazyListener = new LazyListener($this->container->reveal(), 'LazyService');
@@ -39,7 +39,7 @@ class LazyListenerTest extends TestCase
         $this->assertNull($lazyListener($this->event));
     }
 
-    public function testRaisesExceptionIfObjectServiceReturnedIsNotCallableAndNoMethodProvided()
+    public function testRaisesExceptionIfObjectServiceReturnedIsNotCallableAndNoMethodProvided(): void
     {
         $this->container->get('LazyService')->willReturn((object) []);
         $lazyListener = new LazyListener($this->container->reveal(), 'LazyService');
@@ -48,7 +48,7 @@ class LazyListenerTest extends TestCase
         $lazyListener($this->event);
     }
 
-    public function testInvokesCallableListenerReturnedByContainerWhenNoMethodProvided()
+    public function testInvokesCallableListenerReturnedByContainerWhenNoMethodProvided(): void
     {
         $this->container->get('LazyService')->willReturn(new TestAsset\Listener());
         $lazyListener = new LazyListener($this->container->reveal(), 'LazyService');
@@ -56,7 +56,7 @@ class LazyListenerTest extends TestCase
         $this->assertNull($lazyListener($this->event));
     }
 
-    public function testRaisesExceptionIfObjectServiceReturnedIsNotCallableViaMethodProvided()
+    public function testRaisesExceptionIfObjectServiceReturnedIsNotCallableViaMethodProvided(): void
     {
         $this->container->get('LazyService')->willReturn(new TestAsset\Listener());
         $lazyListener = new LazyListener($this->container->reveal(), 'LazyService', 'not-a-real-method');
@@ -65,7 +65,7 @@ class LazyListenerTest extends TestCase
         $lazyListener($this->event);
     }
 
-    public function testInvokesMethodOnObjectListenerReturnedByContainer()
+    public function testInvokesMethodOnObjectListenerReturnedByContainer(): void
     {
         $this->container->get('LazyService')->willReturn(new TestAsset\Listener());
         $lazyListener = new LazyListener($this->container->reveal(), 'LazyService', 'onTest');

@@ -11,7 +11,6 @@ namespace PhlyTest\EventDispatcher;
 
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\EventDispatcher\EventDispatcherInterface;
-use Psr\EventDispatcher\ListenerProviderInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 trait CommonDispatcherTests
@@ -19,18 +18,18 @@ trait CommonDispatcherTests
     abstract public function getDispatcher() : EventDispatcherInterface;
     abstract public function getListenerProvider() : ObjectProphecy;
 
-    public function testImplementsEventDispatcherInterface()
+    public function testImplementsEventDispatcherInterface(): void
     {
         $this->assertInstanceOf(EventDispatcherInterface::class, $this->getDispatcher());
     }
 
-    public function testDispatchNotifiesAllRelevantListenersAndReturnsEventWhenNoErrorsAreRaised()
+    public function testDispatchNotifiesAllRelevantListenersAndReturnsEventWhenNoErrorsAreRaised(): void
     {
         $spy = (object) ['caught' => 0];
 
         $listeners = [];
         for ($i = 0; $i < 5; $i += 1) {
-            $listeners[] = function (object $event) use ($spy) {
+            $listeners[] = function (object $event) use ($spy): void {
                 $spy->caught += 1;
             };
         }
@@ -48,7 +47,7 @@ trait CommonDispatcherTests
         $this->assertSame(5, $spy->caught);
     }
 
-    public function testReturnsEventVerbatimWithoutPullingListenersIfPropagationIsStopped()
+    public function testReturnsEventVerbatimWithoutPullingListenersIfPropagationIsStopped(): void
     {
         $event = $this->prophesize(StoppableEventInterface::class);
         $event
@@ -63,11 +62,11 @@ trait CommonDispatcherTests
             ->shouldNotHaveBeenCalled();
     }
 
-    public function testReturnsEarlyIfAnyListenersStopsPropagation()
+    public function testReturnsEarlyIfAnyListenersStopsPropagation(): void
     {
         $spy = (object) ['caught' => 0];
 
-        $event = new class ($spy) implements StoppableEventInterface {
+        $event = new class($spy) implements StoppableEventInterface {
             private $spy;
 
             public function __construct(object $spy)
@@ -83,7 +82,7 @@ trait CommonDispatcherTests
 
         $listeners = [];
         for ($i = 0; $i < 5; $i += 1) {
-            $listeners[] = function (object $event) use ($spy) {
+            $listeners[] = function (object $event) use ($spy): void {
                 $spy->caught += 1;
             };
         }
