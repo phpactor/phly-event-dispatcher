@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace Phly\EventDispatcher;
 
-use Phly\EventDispatcher\ErrorEmittingDispatcher;
-use Phly\EventDispatcher\EventDispatcher;
-use Phly\EventDispatcher\EventDispatcherFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
@@ -28,7 +25,7 @@ class EventDispatcherFactoryTest extends TestCase
         $this->factory = new EventDispatcherFactory();
     }
 
-    public function testFactoryRaisesTypeErrorIfReturnedServiceIsNotAnEventDispatcher()
+    public function testFactoryRaisesTypeErrorIfReturnedServiceIsNotAnEventDispatcher(): void
     {
         $this->expectException(TypeError::class);
         ($this->factory)($this->container->reveal(), stdClass::class);
@@ -43,7 +40,7 @@ class EventDispatcherFactoryTest extends TestCase
     /**
      * @dataProvider knownDispatcherTypes
      */
-    public function testFactoryCanCreateEventDispatcher(string $type)
+    public function testFactoryCanCreateEventDispatcher(string $type): void
     {
         $dispatcher = ($this->factory)($this->container->reveal(), $type);
         $this->assertInstanceOf($type, $dispatcher);

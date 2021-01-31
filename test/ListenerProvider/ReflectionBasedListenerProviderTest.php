@@ -15,13 +15,11 @@ use PhlyTest\EventDispatcher\TestAsset\TestEvent;
 use PhlyTest\EventDispatcher\TestAsset\Listener;
 use PHPUnit\Framework\TestCase;
 
-use function PhlyTest\EventDispatcher\TestAsset\listenerFunction;
-
 class ReflectionBasedListenerProviderTest extends TestCase
 {
-    public function testCanAttachWithExplicitType()
+    public function testCanAttachWithExplicitType(): void
     {
-        $listener = function ($event) {
+        $listener = function ($event): void {
         };
         $provider = new ReflectionBasedListenerProvider();
         $provider->listen($listener, TestEvent::class);
@@ -31,9 +29,9 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame([$listener], $listeners);
     }
 
-    public function testProviderDetectsTypeFromClosure()
+    public function testProviderDetectsTypeFromClosure(): void
     {
-        $listener = function (TestEvent $event) {
+        $listener = function (TestEvent $event): void {
         };
         $provider = new ReflectionBasedListenerProvider();
         $provider->listen($listener);
@@ -43,7 +41,7 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame([$listener], $listeners);
     }
 
-    public function testProviderDetectsTypeFromFunctionName()
+    public function testProviderDetectsTypeFromFunctionName(): void
     {
         $provider = new ReflectionBasedListenerProvider();
         $provider->listen('PhlyTest\EventDispatcher\TestAsset\listenerFunction');
@@ -53,7 +51,7 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame(['PhlyTest\EventDispatcher\TestAsset\listenerFunction'], $listeners);
     }
 
-    public function testProviderDetectsTypeFromStaticMethodName()
+    public function testProviderDetectsTypeFromStaticMethodName(): void
     {
         $listener = Listener::class . '::onStatic';
         $provider = new ReflectionBasedListenerProvider();
@@ -64,7 +62,7 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame([$listener], $listeners);
     }
 
-    public function testProviderDetectsTypeFromArrayStaticMethod()
+    public function testProviderDetectsTypeFromArrayStaticMethod(): void
     {
         $listener = [Listener::class, 'onStatic'];
         $provider = new ReflectionBasedListenerProvider();
@@ -75,7 +73,7 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame([$listener], $listeners);
     }
 
-    public function testProviderDetectsTypeFromArrayInstanceMethod()
+    public function testProviderDetectsTypeFromArrayInstanceMethod(): void
     {
         $instance = new Listener();
         $listener = [$instance, 'onTest'];
@@ -87,7 +85,7 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame([$listener], $listeners);
     }
 
-    public function testProviderDetectsTypeFromInvokableInstance()
+    public function testProviderDetectsTypeFromInvokableInstance(): void
     {
         $listener = new Listener();
         $provider = new ReflectionBasedListenerProvider();
@@ -98,9 +96,9 @@ class ReflectionBasedListenerProviderTest extends TestCase
         $this->assertSame([$listener], $listeners);
     }
 
-    public function testListenRaisesExceptionIfUnableToDetermineEventType()
+    public function testListenRaisesExceptionIfUnableToDetermineEventType(): void
     {
-        $listener = function ($event) {
+        $listener = function ($event): void {
         };
         $provider = new ReflectionBasedListenerProvider();
 

@@ -11,7 +11,6 @@ namespace Phly\EventDispatcher\ListenerProvider;
 
 use Psr\EventDispatcher\ListenerProviderInterface;
 
-use function array_rand;
 use function in_array;
 
 class RandomizedListenerProvider implements ListenerProviderInterface

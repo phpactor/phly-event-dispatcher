@@ -12,7 +12,6 @@ namespace Phly\EventDispatcher;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
-use Throwable;
 
 class EventDispatcher implements EventDispatcherInterface
 {

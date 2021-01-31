@@ -16,12 +16,12 @@ use RuntimeException;
 
 class ErrorEventTest extends TestCase
 {
-    public function testErrorEventComposesEventListenerAndThrowable()
+    public function testErrorEventComposesEventListenerAndThrowable(): void
     {
         $message   = 'ERROR MESSAGE';
         $code      = 12345;
         $event     = new TestEvent();
-        $listener  = function (TestEvent $event) {
+        $listener  = function (TestEvent $event): void {
         };
         $exception = new RuntimeException($message, $code);
 

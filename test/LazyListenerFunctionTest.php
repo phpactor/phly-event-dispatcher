@@ -17,7 +17,7 @@ use function Phly\EventDispatcher\lazyListener;
 
 class LazyListenerFunctionTest extends TestCase
 {
-    public function testFunctionReturnsALazyListenerUsingProvidedArguments()
+    public function testFunctionReturnsALazyListenerUsingProvidedArguments(): void
     {
         $container = $this->prophesize(ContainerInterface::class)->reveal();
         $listener = lazyListener($container, TestAsset\Listener::class, 'onTest');

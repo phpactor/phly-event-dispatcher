@@ -6,3 +6,5 @@
 /zf-mkdoc-theme.tgz
 /zf-mkdoc-theme/
 /.phpunit.result.cache
+/vendor
+.php_cs.cache

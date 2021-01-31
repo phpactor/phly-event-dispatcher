@@ -12,14 +12,14 @@ use PHPUnit\Framework\TestCase;
 
 class InvalidListenerExceptionTest extends TestCase
 {
-    public function testForNonCallableService()
+    public function testForNonCallableService(): void
     {
         $instance = InvalidListenerException::forNonCallableService($this);
         $this->assertInstanceOf(InvalidListenerException::class, $instance);
         $this->assertContains('type "object" is invalid; must be a PHP callable', $instance->getMessage());
     }
 
-    public function testForNonCallableInstance()
+    public function testForNonCallableInstance(): void
     {
         $instance = InvalidListenerException::forNonCallableInstance($this);
         $this->assertInstanceOf(InvalidListenerException::class, $instance);

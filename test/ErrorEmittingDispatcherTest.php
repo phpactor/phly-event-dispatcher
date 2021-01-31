@@ -16,7 +16,6 @@ use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
-use Psr\EventDispatcher\StoppableEventInterface;
 use RuntimeException;
 
 class ErrorEmittingDispatcherTest extends TestCase
@@ -39,16 +38,16 @@ class ErrorEmittingDispatcherTest extends TestCase
         return $this->provider;
     }
 
-    public function testDispatchesErrorEventIfAListenerRaisesAnExceptionAndThenReThrows()
+    public function testDispatchesErrorEventIfAListenerRaisesAnExceptionAndThenReThrows(): void
     {
         $event                = new TestAsset\TestEvent();
         $exception            = new RuntimeException('TRIGGERED');
-        $errorRaisingListener = function (TestAsset\TestEvent $event) use ($exception) {
+        $errorRaisingListener = function (TestAsset\TestEvent $event) use ($exception): void {
             throw $exception;
         };
 
         $errorSpy      = (object) ['caught' => 0];
-        $errorListener = function (ErrorEvent $e) use ($errorSpy, $exception, $event, $errorRaisingListener) {
+        $errorListener = function (ErrorEvent $e) use ($errorSpy, $exception, $event, $errorRaisingListener): void {
             TestCase::assertSame($event, $e->getEvent());
             TestCase::assertSame($errorRaisingListener, $e->getListener());
             TestCase::assertSame($exception, $e->getThrowable());

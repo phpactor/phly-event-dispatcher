@@ -25,16 +25,16 @@ class AttachableListenerProviderTest extends TestCase
 
     public function createListener()
     {
-        return function (object $event) {
+        return function (object $event): void {
         };
     }
 
-    public function testListenersAreEmptyByDefault()
+    public function testListenersAreEmptyByDefault(): void
     {
         $this->assertAttributeEmpty('listeners', $this->listeners);
     }
 
-    public function testReturnsOnlyListenersForTheGivenEvent()
+    public function testReturnsOnlyListenersForTheGivenEvent(): void
     {
         $listener1 = $this->createListener();
         $listener2 = $this->createListener();
