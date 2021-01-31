@@ -22,6 +22,7 @@
         "fig/event-dispatcher-util": "^1.0",
         "friendsofphp/php-cs-fixer": "^2.17",
         "phpbench/phpbench": "^1.0.0-alpha5",
+        "phpstan/phpstan": "~0.12.0",
         "phpunit/phpunit": "^8.1.1",
         "zendframework/zend-coding-standard": "~1.0.0"
     },
