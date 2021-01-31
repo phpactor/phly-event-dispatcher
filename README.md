@@ -1,6 +1,8 @@
 # event-dispatcher
 
-**FORK**: This library is a fork of [phly-event-dispatcher](https://github.com/phly/phly-event-dispatcher).
+**FORK**: This library is a fork of [phly-event-dispatcher](https://github.com/phly/phly-event-dispatcher) in order to allow PHP 8 compatiblity. Changes as follows:
+
+- Removed ReflectionBasedListenerProvider
 
 This library provides an experimental implementation of [PSR-14 (Event
 Dispatcher)](https://github.com/php-fig/fig-standards/blob/bb8df27dba53fa5cbc653d1d446f850e5690f3cc/proposed/event-dispatcher.md).
