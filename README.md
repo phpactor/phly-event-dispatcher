@@ -1,7 +1,6 @@
 # event-dispatcher
 
-![CI](https://github.com/phpactor/phly-event-dispatcher/workflows/CI/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/phly/phly-event-dispatcher/badge.svg?branch=master)](https://coveralls.io/github/phly/phly-event-dispatcher?branch=master)
+**FORK**: This library is a fork of [phly-event-dispatcher](https://github.com/phly/phly-event-dispatcher).
 
 This library provides an experimental implementation of [PSR-14 (Event
 Dispatcher)](https://github.com/php-fig/fig-standards/blob/bb8df27dba53fa5cbc653d1d446f850e5690f3cc/proposed/event-dispatcher.md).
