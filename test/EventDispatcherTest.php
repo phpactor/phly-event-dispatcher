@@ -11,12 +11,14 @@ namespace PhlyTest\EventDispatcher;
 
 use Phly\EventDispatcher\EventDispatcher;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 
 class EventDispatcherTest extends TestCase
 {
+    use ProphecyTrait;
     use CommonDispatcherTests;
 
     public function setUp(): void

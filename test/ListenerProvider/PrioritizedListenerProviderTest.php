@@ -29,11 +29,6 @@ class PrioritizedListenerProviderTest extends TestCase
         };
     }
 
-    public function testListenersAreEmptyByDefault(): void
-    {
-        $this->assertAttributeEmpty('listeners', $this->listeners);
-    }
-
     public function testReturnsOnlyListenersForTheGivenEventInPriorityOrder(): void
     {
         $listener1 = $this->createListener();

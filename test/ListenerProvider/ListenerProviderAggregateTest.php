@@ -11,11 +11,14 @@ namespace PhlyTest\EventDispatcher\ListenerProvider;
 
 use Phly\EventDispatcher\ListenerProvider\ListenerProviderAggregate;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\EventDispatcher\ListenerProviderInterface;
 use PhlyTest\EventDispatcher\TestAsset\TestEvent;
 
 class ListenerProviderAggregateTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testAggregateYieldsFromAttachedProviders(): void
     {
         $event = new TestEvent();

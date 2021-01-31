@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Phly\EventDispatcher;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 use stdClass;
@@ -17,6 +18,8 @@ use TypeError;
 
 class EventDispatcherFactoryTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function setUp(): void
     {
         $this->provider  = $this->prophesize(ListenerProviderInterface::class)->reveal();
@@ -44,6 +47,5 @@ class EventDispatcherFactoryTest extends TestCase
     {
         $dispatcher = ($this->factory)($this->container->reveal(), $type);
         $this->assertInstanceOf($type, $dispatcher);
-        $this->assertAttributeSame($this->provider, 'listenerProvider', $dispatcher);
     }
 }
