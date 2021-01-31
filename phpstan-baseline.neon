@@ -55,13 +55,3 @@ parameters:
 			count: 1
 			path: src/ListenerProvider/RandomizedListenerProvider.php
 
-		-
-			message: "#^Method Phly\\\\EventDispatcher\\\\ListenerProvider\\\\ReflectionBasedListenerProvider\\:\\:getListenersForEvent\\(\\) return type has no value type specified in iterable type iterable\\.$#"
-			count: 1
-			path: src/ListenerProvider/ReflectionBasedListenerProvider.php
-
-		-
-			message: "#^Parameter \\#1 \\$stack of function array_shift expects array, array\\<int, string\\>\\|\\(callable\\) given\\.$#"
-			count: 2
-			path: src/ListenerProvider/ReflectionBasedListenerProvider.php
-

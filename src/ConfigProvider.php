@@ -27,7 +27,6 @@ class ConfigProvider
                 ListenerProvider\AttachableListenerProvider::class      => ListenerProvider\AttachableListenerProvider::class,
                 ListenerProvider\PrioritizedListenerProvider::class     => ListenerProvider\PrioritizedListenerProvider::class,
                 ListenerProvider\RandomizedListenerProvider::class      => ListenerProvider\RandomizedListenerProvider::class,
-                ListenerProvider\ReflectionBasedListenerProvider::class => ListenerProvider\ReflectionBasedListenerProvider::class,
             ],
             // phpcs:endable
             // @codingStandardsIgnoreEnd
