@@ -36,9 +36,7 @@ class ErrorEmittingDispatcher implements EventDispatcherInterface
      */
     public function dispatch(object $event)
     {
-        $stoppable = $event instanceof StoppableEventInterface;
-
-        if ($stoppable && $event->isPropagationStopped()) {
+        if ($event instanceof StoppableEventInterface && $event->isPropagationStopped()) {
             return $event;
         }
 
@@ -49,7 +47,7 @@ class ErrorEmittingDispatcher implements EventDispatcherInterface
                 $this->handleCaughtThrowable($e, $event, $listener);
             }
 
-            if ($stoppable && $event->isPropagationStopped()) {
+            if ($event instanceof StoppableEventInterface && $ $event->isPropagationStopped()) {
                 break;
             }
         }

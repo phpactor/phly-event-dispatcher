@@ -11,13 +11,18 @@ namespace Phly\EventDispatcher;
 
 class ConfigProvider
 {
+    /**
+     * @return array<string,array<string,array<string,class-string>>>
+     */
     public function __invoke() : array
     {
         return [
             'dependencies' => $this->getDependencies(),
         ];
     }
-
+    /**
+     * @return array<string,array<string,class-string>>
+     */
     public function getDependencies() : array
     {
         return [

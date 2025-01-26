@@ -14,7 +14,7 @@ use Psr\Container\ContainerInterface;
 function lazyListener(
     ContainerInterface $container,
     string $service,
-    string $method = null
+    ?string $method = null
 ) : LazyListener {
     return new LazyListener($container, $service, $method);
 }
